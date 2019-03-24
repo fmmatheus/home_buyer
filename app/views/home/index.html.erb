@@ -1,0 +1,25 @@
+<h1 class="display-4 text-center">Search for the perfect house</h1>
+
+<%= render 'search' %>
+
+<p><h4>Our agents:</h4></p>
+
+<div class="row">
+  <% @agents.each do |a| %>
+    <div class="col-md-4">
+      <div class="card bg-light">
+        <div class="card-header">
+          <%= a.name %>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Rate: <%= a.rate %></li>
+            <li>Preferred Neighborhood: <%= Neighborhood.find(a.neighborhood_id).name %></li>
+            <li>10% Discount for ages above <%= a.discount_age %>**</li>
+            <p><small>**Rate discount</small></p>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

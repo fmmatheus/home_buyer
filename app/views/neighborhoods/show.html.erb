@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @neighborhood.name %>
+</p>
+
+<p>
+  <strong>X1:</strong>
+  <%= @neighborhood.x1 %>
+</p>
+
+<p>
+  <strong>X2:</strong>
+  <%= @neighborhood.x2 %>
+</p>
+
+<p>
+  <strong>Y1:</strong>
+  <%= @neighborhood.y1 %>
+</p>
+
+<p>
+  <strong>Y2:</strong>
+  <%= @neighborhood.y2 %>
+</p>
+
+<%= link_to 'Edit', edit_neighborhood_path(@neighborhood) %> |
+<%= link_to 'Back', neighborhoods_path %>

@@ -1,0 +1,14 @@
+<div class="card text-center">
+  <div class="card-header">
+    Tell us more about you
+  </div>
+  <div class="card-body">
+    <%= form_tag(results_path, method: :get, class: '') do %>
+      <label class="">Your age:</label>
+      <%= select_tag(:age, options_for_select((21..50).step(1)), { class: '' }) %>
+      <label class="">Annual Income:</label>
+      <%= number_field_tag :incoming, { class: '' } %>
+      <%= submit_tag 'Search', name: nil, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

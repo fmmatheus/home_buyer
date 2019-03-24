@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @agent.name %>
+</p>
+
+<p>
+  <strong>Discount age:</strong>
+  <%= @agent.discount_age %>
+</p>
+
+<p>
+  <strong>Minimum incoming:</strong>
+  <%= @agent.minimum_incoming %>
+</p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= @agent.rate %>
+</p>
+
+<p>
+  <strong>Neighborhood:</strong>
+  <%= @agent.neighborhood %>
+</p>
+
+<%= link_to 'Edit', edit_agent_path(@agent) %> |
+<%= link_to 'Back', agents_path %>

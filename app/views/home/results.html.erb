@@ -1,0 +1,51 @@
+<p></p>
+
+<%= render 'search' %>
+
+<p><h4>Results:</h4></p>
+
+<div class="accordion" id="accordionNeighborhood">
+  <% @neighborhoods.each_with_index do |n,i| %>
+    <div class="card">
+      <div class="card-header" id="heading-<%= i %>">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-<%= i %>" aria-expanded="true" aria-controls="collapse-<%= i %>">
+            <%= n.name %> - <small>houses: <%= House.houses_from(n).size %></small>
+          </button>
+        </h2>
+      </div>
+      <div id="collapse-<%= i %>" class="collapse" aria-labelledby="heading-<%= i %>" data-parent="#accordionNeighborhood">
+        <div class="card-body">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Location</th>
+                <th scope="col">Price</th>
+                <% @agents.each do |a| %>
+                  <th scope="col"><%= a.name %> Rate</th>
+                  <th scope="col"><%= a.name %> With Discount</th>
+                  <th scope="col"><%= a.name %> Total</th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody>
+              <% House.houses_from(n).each_with_index do |h,i| %>
+                <tr>
+                  <th scope="row"><%= i + 1 %></th>
+                  <td>(<%= "#{h.x}, #{h.y}" %>)</td>
+                  <td>$<%= h.price %></td>
+                  <% @agents.each do |a| %>
+                    <td><%= a.rate * 100 %>%</td>
+                    <td><%= final_rate(a,params[:age],n.id) * 100 %>%</td>
+                    <td>$<%= final_price(a,params[:age],h,n.id) %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

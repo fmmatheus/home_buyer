@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Agents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Discount age</th>
+      <th>Minimum incoming</th>
+      <th>Rate</th>
+      <th>Neighborhood</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agents.each do |agent| %>
+      <tr>
+        <td><%= agent.name %></td>
+        <td><%= agent.discount_age %></td>
+        <td><%= agent.minimum_incoming %></td>
+        <td><%= agent.rate %></td>
+        <td><%= agent.neighborhood %></td>
+        <td><%= link_to 'Show', agent %></td>
+        <td><%= link_to 'Edit', edit_agent_path(agent) %></td>
+        <td><%= link_to 'Destroy', agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Agent', new_agent_path %>

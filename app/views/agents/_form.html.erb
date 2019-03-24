@@ -1,0 +1,42 @@
+<%= form_with(model: agent, local: true) do |form| %>
+  <% if agent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
+
+      <ul>
+      <% agent.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :discount_age %>
+    <%= form.number_field :discount_age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :minimum_incoming %>
+    <%= form.text_field :minimum_incoming %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rate %>
+    <%= form.text_field :rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :neighborhood_id %>
+    <%= form.text_field :neighborhood_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
